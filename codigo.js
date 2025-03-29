@@ -69,4 +69,22 @@ const botonBorrar = () => {
     mostrarTareas()
 }
 
+const mostrarMasRapido = () => {
+    let tareaMasRapida = document.getElementById("tareaMasRapida")
+    let tareaBuscada = ""
+
+    for(let i = 0; i < listaTareas.length; i++){
+        if((listaTareas[i].fechaTachado != "") && (tareaBuscada === "" || listaTareas[i].fechaTachado.getTime() < tareaBuscada.fechaTachado.getTime())) {
+            tareaBuscada = listaTareas[i]
+        }
+    }
+
+    if (tareaBuscada != "") {
+        tareaMasRapida.innerHTML = `<div class="tarea-texto"> ${tareaBuscada.tarea} <div/>`
+    }
+    else {
+        tareaMasRapida.innerHTML = `<div class="tarea-texto"> No se tacho ninguna tarea <div/>`
+    }
+}
+
 
