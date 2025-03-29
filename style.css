@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor-principal {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.titulo {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contenedor-tareas {
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.tarea-texto {
+    font-size: 2rem;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.tarea-no-completa {
+    color: #333;
+}
+
+.tarea-completa {
+    color: #888;
+    text-decoration: line-through;
+}
+
+.checkbox {
+    margin-left: 20px;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #7d7d7d;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+    background-color: #ff6347;
+    border-color: #ff6347;
+    box-shadow: 0 0 8px rgba(255, 99, 71, 0.5);
+}
+
+.checkbox:checked::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background-color: #fff;
+    margin: 4px;
+}
+
+.entrada-tarea {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.input-tarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.boton-agregar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-borrar {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #45a049;
+}
+
+.fecha {
+    font-size: 0.8rem; 
+    color: #777;
+}
+
+.fechaCreacion,
+.fechaTachado {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+.tarea-texto p {
+    margin: 0;
+}

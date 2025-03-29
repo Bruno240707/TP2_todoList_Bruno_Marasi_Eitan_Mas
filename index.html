@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <h1 class="titulo">Esbribir lo que tenes que hacer aca</h1>
+
+        <div class="entrada-tarea">
+            <input type="text" id="tareaIngresada" class="input-tarea" placeholder="Escribe tu tarea...">
+        </div>
+        <div class="boton-agregar">
+            <button onclick="agregarTarea()" class="boton">Agregar Tarea</button>
+        </div>
+
+        <div id="contenedorDeTareas" class="contenedor-tareas">
+        </div>
+
+        <div class="boton-agregar">
+            <button onclick="botonBorrar()" class="boton-borrar">Borrar Tareas</button>
+        </div>
+
+    </div>
+
+    <script src="codigo.js"></script>
+</body>
+</html>
