@@ -29,13 +29,14 @@ const mostrarTareas = () => {
     listaTareas.forEach(t => {
 
         contenedorDeTareas = document.getElementById("contenedorDeTareas").innerHTML += `
-        <div class="tarea-texto"> 
-            <p id="tarea${t.numeroTarea}" class="tarea-nombre ${t.tachado ? "tarea-completa" : "tarea-no-completa"}">${t.tarea}</p>
-            <p class="fechaCreacion">Fecha de creacion:${t.fechaCreado}<p/>
-            <p class="fechaTachado" id="fechaTachado${t.numeroTarea}">Fecha de tachado: ${t.tachado ? t.fechaTachado : "No fue tachado"}<p/>
+        <div class="tarea-texto">
+            <input type="checkbox" value="${t.numeroTarea}" class="checkbox" onchange="tacharTarea(this)" ${t.tachado ? "checked" : ""}>
+            <div class="contenido-tarea">
+                <p id="tarea${t.numeroTarea}" class="tarea-nombre ${t.tachado ? "tarea-completa" : "tarea-no-completa"}">${t.tarea}</p>
+                <p class="fechaCreacion">Fecha de creacion:${t.fechaCreado}</p>
+                <p class="fechaTachado" id="fechaTachado${t.numeroTarea}">Fecha de tachado: ${t.tachado ? t.fechaTachado : "No fue tachado"}</p>
+            </div>
         </div>
-
-        <input type="checkbox" value="${t.numeroTarea}" class="checkbox" onchange="tacharTarea(this)" ${t.tachado ? "checked" : ""}>
         `
     })
 }
@@ -80,7 +81,7 @@ const mostrarMasRapido = () => {
     }
 
     if (tareaBuscada != "") {
-        tareaMasRapida.innerHTML = `<div class="tarea-texto"> ${tareaBuscada.tarea} <div/>`
+        tareaMasRapida.innerHTML = `<div class="tarea-texto">Tarea mas rapido en realizarse: "${tareaBuscada.tarea}" <div/>`
     }
     else {
         tareaMasRapida.innerHTML = `<div class="tarea-texto"> No se tacho ninguna tarea <div/>`

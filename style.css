@@ -42,8 +42,7 @@ body {
     background-color: #fff;
     border-radius: 8px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Alineación horizontal */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
 }
@@ -58,7 +57,7 @@ body {
 }
 
 .checkbox {
-    margin-left: 20px;
+    margin-right: 10px; /* Espacio entre el checkbox y el contenido */
     appearance: none;
     width: 24px;
     height: 24px;
@@ -83,6 +82,19 @@ body {
     border-radius: 3px;
     background-color: #fff;
     margin: 4px;
+}
+
+.contenido-tarea {
+    display: flex;
+    flex-direction: column; /* Mantiene el contenido en columna */
+    flex: 1;
+}
+
+.fechaCreacion,
+.fechaTachado {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 5px;
 }
 
 .entrada-tarea {
@@ -134,13 +146,6 @@ body {
 .fecha {
     font-size: 0.8rem; 
     color: #777;
-}
-
-.fechaCreacion,
-.fechaTachado {
-    font-size: 0.8rem;
-    color: #999;
-    margin-top: 5px;
 }
 
 .tarea-texto p {
