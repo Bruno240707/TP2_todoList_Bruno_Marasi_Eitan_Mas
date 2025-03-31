@@ -1,5 +1,4 @@
 let listaTareas = []
-let ultimoNumeroTarea = 0
 
 const agregarTarea = () => {
 
@@ -12,7 +11,6 @@ const agregarTarea = () => {
         listaTareas.push({
             tarea: tareaIngresada,
             tachado: false,
-            numeroTarea: ultimoNumeroTarea++,
             fechaCreado: fechaActual,
             fechaTachado: ""
         })
@@ -26,29 +24,29 @@ const mostrarTareas = () => {
     let contenedorDeTareas = document.getElementById("contenedorDeTareas")
     contenedorDeTareas.innerHTML = ""
 
-    listaTareas.forEach(t => {
+    listaTareas.forEach((t, i) => {
 
         contenedorDeTareas = document.getElementById("contenedorDeTareas").innerHTML += `
         <div class="tarea-texto">
-            <input type="checkbox" value="${t.numeroTarea}" class="checkbox" onchange="tacharTarea(this)" ${t.tachado ? "checked" : ""}>
+            <input type="checkbox" value="${i}" class="checkbox" onchange="tacharTarea(this)" ${t.tachado ? "checked" : ""}>
             <div class="contenido-tarea">
-                <p id="tarea${t.numeroTarea}" class="tarea-nombre ${t.tachado ? "tarea-completa" : "tarea-no-completa"}">${t.tarea}</p>
+                <p id="tarea${i}" class="tarea-nombre ${t.tachado ? "tarea-completa" : "tarea-no-completa"}">${t.tarea}</p>
                 <p class="fechaCreacion">Fecha de creacion:${t.fechaCreado}</p>
-                <p class="fechaTachado" id="fechaTachado${t.numeroTarea}">Fecha de tachado: ${t.tachado ? t.fechaTachado : "No fue tachado"}</p>
+                <p class="fechaTachado" id="fechaTachado${i}">Fecha de tachado: ${t.tachado ? t.fechaTachado : "No fue tachado"}</p>
             </div>
         </div>
         `
     })
 }
 
-const tacharTarea = (tachado) => {
+const tacharTarea = (checkbox) => {
 
     const timestamp = Date.now()
     const fechaActual = new Date(timestamp)
 
-    let tarea = listaTareas.find(t => t.numeroTarea == tachado.value)
-    const textoTarea = document.getElementById(`tarea${tarea.numeroTarea}`)
-    const textoTareaTachado = document.getElementById(`fechaTachado${tarea.numeroTarea}`)
+    let tarea = listaTareas[checkbox.value]
+    const textoTarea = document.getElementById(`tarea${checkbox.value}`)
+    const textoTareaTachado = document.getElementById(`fechaTachado${checkbox.value}`)
 
     if (tarea.tachado == false) {
         tarea.tachado = true
@@ -60,7 +58,7 @@ const tacharTarea = (tachado) => {
         tarea.tachado = false
         tarea.fechaTachado = ""
         textoTarea.classList.remove("tarea-completa")
-        textoTareaTachado.innerHTML = "No fue tachado"
+        textoTareaTachado.innerHTML = "Fecha de tachado: No fue tachado"
     }
     
 }
